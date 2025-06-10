@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const client_id = params.get("client_id");
+      const redirect_uri = params.get("redirect_uri");
+      const response_type = params.get("response_type");
+      const state = params.get("state");
+      const app = document.getElementById("app");
+      app.innerHTML = `
+        <h1>Client ID: ${client_id}</h1>
+        <h1>Redirect URI: ${redirect_uri}</h1>
+        <h1>Response Type: ${response_type}</h1>
+        <h1>State: ${state}</h1>
+      `;
+    </script>
+  </body>
+</html>

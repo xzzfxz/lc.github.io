@@ -6,6 +6,8 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- <a href="netdiskplayer://netdiskplayer?code=123">打开app</a>
+    <button onclick="openApp()">打开app</button> -->
     <div id="app"></div>
     <script>
       const params = new URLSearchParams(window.location.search);
@@ -15,8 +17,12 @@
         <h1>State: ${state}</h1>
       `;
       if (state) {
-        window.location.href = `netdiskplayer://oauth?code=${state}`;
+        window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${state}`;
       }
+      // function openApp() {
+      //   // window.location.href = "netdiskplayer://netdiskplayer?code=123";
+      //   window.open("netdiskplayer://netdiskplayer/oauth?code=123", "_blank");
+      // }
     </script>
   </body>
 </html>

@@ -15,7 +15,8 @@
       const app = document.getElementById("app");
       app.innerHTML = `code: ${code}, state: ${state}`;
       if (code) {
-        window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${code}&state=${state}`;
+        const url = window.location.href;
+        window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${code}&redirectUrl=${encodeURIComponent(url)}`;
       }
     </script>
   </body>

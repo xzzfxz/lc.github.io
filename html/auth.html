@@ -11,6 +11,8 @@
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
       console.log(code)
+      const app = document.getElementById("app");
+      app.innerHTML = `code: ${code}`;
       if (state) {
         window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${code}`;
       }

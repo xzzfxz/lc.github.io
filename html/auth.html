@@ -10,10 +10,7 @@
     <script>
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
-      const app = document.getElementById("app");
-      app.innerHTML = `
-        <h1>State: ${state}</h1>
-      `;
+      console.log(code)
       if (state) {
         window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${code}`;
       }

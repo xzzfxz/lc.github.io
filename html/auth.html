@@ -13,7 +13,7 @@
       console.log(code)
       const app = document.getElementById("app");
       app.innerHTML = `code: ${code}`;
-      if (state) {
+      if (code) {
         window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${code}`;
       }
     </script>

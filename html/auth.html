@@ -10,11 +10,12 @@
     <script>
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
-      console.log(code)
+      const state = params.get("state");
+      console.log(code, state);
       const app = document.getElementById("app");
-      app.innerHTML = `code: ${code}`;
+      app.innerHTML = `code: ${code}, state: ${state}`;
       if (code) {
-        window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${code}`;
+        window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${code}&state=${state}`;
       }
     </script>
   </body>

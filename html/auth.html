@@ -9,13 +9,13 @@
     <div id="app"></div>
     <script>
       const params = new URLSearchParams(window.location.search);
-      const state = params.get("state");
+      const code = params.get("code");
       const app = document.getElementById("app");
       app.innerHTML = `
         <h1>State: ${state}</h1>
       `;
       if (state) {
-        window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${state}`;
+        window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${code}`;
       }
     </script>
   </body>

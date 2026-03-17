@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>netDiskPlayer</title>
+  <title>netPlayer</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     app.innerHTML = `code: ${code}, state: ${state}`;
     if (code) {
       const url = window.location.href;
-      window.location.href = `netdiskplayer://netdiskplayer/oauth?code=${code}&redirectUrl=${encodeURIComponent(url)}`;
+      window.location.href = `netplayer://netplayer/oauth?code=${code}&redirectUrl=${encodeURIComponent(url)}`;
     }
   </script>
 </body>

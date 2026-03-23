@@ -21,6 +21,7 @@
           >netplayer直达view页面</a
         >
       </div>
+      <div id="url"></div>
     </div>
     <script>
       let lastUrl = "";
@@ -32,6 +33,7 @@
       app.innerHTML = `code: ${code}, state: ${state}`;
       if (code) {
         const url = window.location.href;
+        document.querySelector("#url").innerHTML = url;
         lastUrl = `netplayer://netplayer/oauth?code=${code}&redirectUrl=${encodeURIComponent(url)}`;
         // window.location.href = lastUrl;
         document.querySelector("#redirectId").href = lastUrl;

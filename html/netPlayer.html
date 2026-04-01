@@ -1,45 +1,58 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>netPlayer</title>
-  </head>
 
-  <body>
-    <div id="app"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>netPlayer</title>
+  <style>
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      background-color: #f1f5f9;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <div>
     <div>
-      <div>
-        <a id="test" href="uniappx://netplayer/oauth?code=123&redirectUrl=456"
-          >测试用</a
-        >
-      </div>
-      <div>
-        <a
-          id="redirectId"
-          href="netplayer://netplayer/pages/component/view/view"
-          >netplayer直达view页面</a
-        >
-      </div>
-      <div id="url"></div>
+      <a id="test" href="uniappx://netplayer/oauth?code=123&redirectUrl=456">测试用</a>
     </div>
-    <script>
-      let lastUrl = "";
-      const params = new URLSearchParams(window.location.search);
-      const code = params.get("code");
-      const state = params.get("state");
-      console.log(code, state);
-      const app = document.getElementById("app");
-      app.innerHTML = `code: ${code}, state: ${state}`;
-      if (code) {
-        const url = window.location.href;
-        document.querySelector("#url").innerHTML = url;
-        lastUrl = `netplayer://netplayer/oauth?code=${code}&redirectUrl=${encodeURIComponent(url)}`;
-        // window.location.href = lastUrl;
-        document.querySelector("#redirectId").href = lastUrl;
-        document.querySelector("#test").href =
-          `uniappx://netplayer/oauth?code=${code}&redirectUrl=${encodeURIComponent(url)}`;
-      }
-    </script>
-  </body>
+    <div class="button">
+      <a id="redirectId" href="netplayer://netplayer/pages/component/view/view">打开netPlayer</a>
+    </div>
+    <div id="url"></div>
+  </div>
+  <script>
+    let lastUrl = "";
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const state = params.get("state");
+    console.log(code, state);
+    if (code) {
+      const url = window.location.href;
+      document.querySelector("#url").innerHTML = url;
+      lastUrl = `netplayer://netplayer/oauth?code=${code}&redirectUrl=${encodeURIComponent(url)}`;
+      // window.location.href = lastUrl;
+      document.querySelector("#redirectId").href = lastUrl;
+      document.querySelector("#test").href =
+        `uniappx://netplayer/oauth?code=${code}&redirectUrl=${encodeURIComponent(url)}`;
+    }
+  </script>
+</body>
+
 </html>
